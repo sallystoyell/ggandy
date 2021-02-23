@@ -5,7 +5,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 draw_key_bernie <-  function(data, params, size) {
 
-  filename <- system.file(paste0(data$bernie, ".png"), package = "ggbernie", mustWork = TRUE)
+  filename <- system.file(paste0(data$andy, ".png"), package = "ggandy", mustWork = TRUE)
   # print(filename)
   img <- as.raster(png::readPNG(filename))
   aspect <- dim(img)[1]/dim(img)[2]
@@ -14,15 +14,10 @@ draw_key_bernie <-  function(data, params, size) {
 }
 
 # bernieGrob
-bernieGrob <- function(x, y, size, bernie = "sitting", geom_key = list(sitting = "sitting.png",
-                                                                       stand = "stand.png",
-                                                                       head = "head.png",
-                                                                       asking = "asking.png",
-                                                                       young = "young.png",
-                                                                       arms = "arms.png",
-                                                                       eyebrows = "eyebrows.png")) {
+andyGrob <- function(x, y, size, andy = "andy", geom_key = list(andy = "andy.png",
+                                                                       emoji = "emoji.png")) {
 
-  filename <- system.file(geom_key[[unique(bernie)]], package = "ggbernie", mustWork = TRUE)
+  filename <- system.file(geom_key[[unique(andy)]], package = "ggandy", mustWork = TRUE)
   img <- as.raster(png::readPNG(filename))
 
   # rasterGrob
@@ -34,31 +29,31 @@ bernieGrob <- function(x, y, size, bernie = "sitting", geom_key = list(sitting =
                    height        = size * ggplot2::unit(20, "mm"))
 }
 
-# GeomBernie
-GeomBernie <- ggplot2::ggproto(`_class` = "GeomBernie",
+# Geomandy
+Geomandy <- ggplot2::ggproto(`_class` = "Geomandy",
                                `_inherit` = ggplot2::Geom,
                                required_aes = c("x", "y"),
-                               non_missing_aes = c("size", "bernie"),
-                               default_aes = ggplot2::aes(size = 1, bernie = "sitting", shape  = 19,
+                               non_missing_aes = c("size", "andy"),
+                               default_aes = ggplot2::aes(size = 1, andy = "andy", shape  = 19,
                                                           colour = "black",   fill   = NA,
                                                           alpha  = NA,
                                                           stroke =  0.5,
                                                           scale = 5,
-                                                          image_filename = "sitting"),
+                                                          image_filename = "andy"),
 
                                draw_panel = function(data, panel_scales, coord, na.rm = FALSE) {
                                  coords <- coord$transform(data, panel_scales)
-                                 ggplot2:::ggname(prefix = "geom_bernie",
-                                                  grob = bernieGrob(x = coords$x,
+                                 ggplot2:::ggname(prefix = "geom_andy",
+                                                  grob = andyGrob(x = coords$x,
                                                                     y = coords$y,
                                                                     size = coords$size,
-                                                                    bernie = coords$bernie))
+                                                                    andy = coords$andy))
                                },
 
-                               draw_key = draw_key_bernie)
+                               draw_key = draw_key_andy)
 
-#' @title Bernie layer
-#' @description The geom is used to add Bernie Sanders to plots. See ?ggplot2::geom_points for more info.
+#' @title andy layer
+#' @description The geom is used to add andy to plots. See ?ggplot2::geom_points for more info.
 #' @inheritParams ggplot2::geom_point
 #' @examples
 #'
@@ -66,16 +61,16 @@ GeomBernie <- ggplot2::ggproto(`_class` = "GeomBernie",
 #'library(ggplot2)
 #'
 #' ggplot(mtcars) +
-#'  geom_bernie(aes(mpg, wt), bernie = "sitting") +
+#'  geom_andy(aes(mpg, wt), andy = "andy") +
 #'  theme_bw()
 #'
 #' ggplot(mtcars) +
-#'  geom_bernie(aes(mpg, wt), bernie = "head") +
+#'  geom_andy(aes(mpg, wt), andy = "emoji") +
 #'  theme_bw()
 #'
 #' @importFrom grDevices as.raster
 #' @export
-geom_bernie <- function(mapping = NULL,
+geom_andy <- function(mapping = NULL,
                         data = NULL,
                         stat = "identity",
                         position = "identity",
@@ -87,7 +82,7 @@ geom_bernie <- function(mapping = NULL,
   ggplot2::layer(data = data,
                  mapping = mapping,
                  stat = stat,
-                 geom = GeomBernie,
+                 geom = Geomandy,
                  position = position,
                  show.legend = show.legend,
                  inherit.aes = inherit.aes,
