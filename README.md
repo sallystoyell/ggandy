@@ -21,7 +21,7 @@ ggplot(mtcars) +
 
 ```r
 ggplot(mtcars) +
-  geom_bernie(aes(mpg, wt), andy = "emoji")
+  geom_andy(aes(mpg, wt), andy = "emoji")
 ```
 
 <p align="center">
