@@ -1,9 +1,9 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#' Key Bernie
+#' Key andy
 #'
 #' @param data,params,size key stuff
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-draw_key_bernie <-  function(data, params, size) {
+draw_key_andy <-  function(data, params, size) {
 
   filename <- system.file(paste0(data$andy, ".png"), package = "ggandy", mustWork = TRUE)
   # print(filename)
@@ -13,7 +13,7 @@ draw_key_bernie <-  function(data, params, size) {
   grid::rasterGrob(image         = img)
 }
 
-# bernieGrob
+# andyGrob
 andyGrob <- function(x, y, size, andy = "andy", geom_key = list(andy = "andy.png",
                                                                        emoji = "emoji.png")) {
 
