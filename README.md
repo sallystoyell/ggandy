@@ -1,4 +1,4 @@
-# ggbernie
+# ggandy
 A ggplot2 geom for adding Andy. Cloned from ggbernie (https://github.com/R-CoderDotCom/ggbernie) and modified.
 
 ## Installation
