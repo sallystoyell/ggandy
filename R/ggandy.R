@@ -15,7 +15,7 @@ draw_key_andy <-  function(data, params, size) {
 
 # andyGrob
 andyGrob <- function(x, y, size, andy = "andy", geom_key = list(andy = "andy.png",
-                                                                       emoji = "emoji.png")) {
+                                                                emoji = "emoji.png")) {
 
   filename <- system.file(geom_key[[unique(andy)]], package = "ggandy", mustWork = TRUE)
   img <- as.raster(png::readPNG(filename))
