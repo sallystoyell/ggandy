@@ -25,5 +25,5 @@ ggplot(mtcars) +
 ```
 
 <p align="center">
- <img src="https://user-images.githubusercontent.com/67192157/105496133-5cc63500-5cbd-11eb-8343-aae625f2ca21.png">
+ <img src="https://github.com/sallystoyell/images/blob/main/example2_ggandy">
 </p>
