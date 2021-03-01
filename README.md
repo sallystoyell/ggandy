@@ -1,5 +1,5 @@
 # ggandy
-A ggplot2 geom for adding Andy. Cloned from ggbernie (https://github.com/R-CoderDotCom/ggbernie) and modified. All credit for the code goes to them!
+A ggplot2 geom for adding Andy. Cloned from ggbernie (https://github.com/R-CoderDotCom/ggbernie) and modified. All credit for the original code goes to them!
 
 ## Installation
 ```r
